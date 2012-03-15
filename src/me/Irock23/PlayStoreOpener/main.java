@@ -1,6 +1,8 @@
 package me.Irock23.PlayStoreOpener;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,13 +17,20 @@ public class main extends Activity {
     public void onCreate(Bundle savedInstanceState) {
     	super.onCreate(savedInstanceState);
     	setContentView(R.layout.main);
-    	Intent intent = getPackageManager().getLaunchIntentForPackage("com.android.vending");
-    	if(isCallable(intent)) {
-        	startActivity(intent);
-    	} else {
-    		MsgBox("Google Play Store not found!");
+    	Timer lTimer = new Timer();
+    	lTimer.schedule(new LaunchS(), 100);
+    }
+    
+    class LaunchS extends TimerTask {
+    	public void run() {
+    		Intent intent = getPackageManager().getLaunchIntentForPackage("com.android.vending");
+        	if(isCallable(intent)) {
+            	startActivity(intent);
+        	} else {
+        		MsgBox("Google Play Store not found!");
+        	}
+        	finish();
     	}
-    	finish();
     }
     
     private boolean isCallable(Intent intent) {  
