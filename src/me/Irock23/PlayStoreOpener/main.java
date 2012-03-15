@@ -15,9 +15,8 @@ public class main extends Activity {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
+    	new Timer().schedule(new LaunchS(), 100);
     	super.onCreate(savedInstanceState);
-    	Timer lTimer = new Timer();
-    	lTimer.schedule(new LaunchS(), 100);
     }
     
     class LaunchS extends TimerTask {
