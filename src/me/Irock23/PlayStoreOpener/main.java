@@ -16,7 +16,6 @@ public class main extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	super.onCreate(savedInstanceState);
-    	setContentView(R.layout.main);
     	Timer lTimer = new Timer();
     	lTimer.schedule(new LaunchS(), 100);
     }
