@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.widget.Toast;
 
 public class main extends Activity {
@@ -37,6 +38,8 @@ public class main extends Activity {
     }
     
     public void MsgBox(String message){
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    	Toast msgbox = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+    	msgbox.setGravity(Gravity.CENTER, 0, 0);
+        msgbox.show();
     }
 }
